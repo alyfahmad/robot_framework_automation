@@ -12,4 +12,8 @@
 12. Go to File →  Settings
 13. Select the project and go to python interpreter
 14. Add 3 interpreters - (1) selenium (2)robotframework (3)robotframework-seleniumlibrary
-15. Add plugin for IntelliBot@SeleniumLibrary Patched (optional but recommended)
+15. Add plugin for IntelliBot Patched (optional but recommended)
+16. Download selenium driver for chrome from "https://chromedriver.chromium.org/downloads"
+17. Unzip the file and place the .exe file in the scripts folder of your python installation
+*Good to Know:*  Remember to use the correct location for python interpreter. If you're configuring locally then use that otherwise
+use the global configuration
