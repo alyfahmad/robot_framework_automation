@@ -3,7 +3,7 @@
 
 Hi. This is a practice automation project using Robot Framework and Selenium.
 
-- To Prepare the environment please refer to the [Environment Setup Guide](#Environment Setup Guide).
+- To Prepare the environment please refer to the [Environment Setup Guide](#environment-setup-guide).
 - You can run the automated tests using the executor.bat file.
 ## Covered Test Cases
 
@@ -72,14 +72,20 @@ Hi. This is a practice automation project using Robot Framework and Selenium.
    <li>Verify Thank You Page</li>
    <li>Verify Logout</li>
   </ul>
-</details>  
+</details> 
+
+
+
+
+## Demo Video
+[demp](https://user-images.githubusercontent.com/61960249/202766257-d3e6509b-15f1-4606-ad9d-9b9f83ea8899.mp4)
 
 ## Acknowledgements
 
  - I used a great test website by Sauce Labs for this automation: https://www.saucedemo.com/
 
 
-## Environment Setup Guide {#1}
+## Environment Setup Guide
 
 1. Install the latest version(3.11.0) of python from https://www.python.org/
 2. check python installation by opening the command prompt and typing in "python --version"
