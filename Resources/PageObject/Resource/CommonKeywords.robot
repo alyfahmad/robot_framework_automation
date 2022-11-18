@@ -14,7 +14,7 @@ close browser and clear session
     close browser
 
 Read Inventory Data From CSV File and Return List
-    ${csvfile}  get file    ../TestData/inventory.csv
+    ${csvfile}  get file    Resources/PageObject/TestData/inventory.csv
     @{initial_list}   create list    ${csvfile}
     @{modified_list}    split to lines    @{initial_list}   1   #remove header and split to rows
     @{item_title}       create list
