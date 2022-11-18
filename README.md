@@ -7,63 +7,79 @@ Hi. This is a practice automation project using Robot Framework and Selenium.
 - You can run the automated tests using the executor.bat file.
 ## Covered Test Cases
 
-> - Login Page
->>    - Verify Logo of Swaglabs
->>    - Verify Swaglabs Mascot
->>   - Verify Login with Invalid User
->>    - Verify Error Messages
->>    - Verify login with Locked out User
->>    - Verify login with Valid User
-> - Inventory Page
->>    - Read Inventory Item information from csv
->>    - Verify Inventory Item Images
->>    - Verify Inventory Item Titles
->>    - Verify Inventory Item Descriptions
->>    - Verify Inventory Item Prices
->>   - Click on each item and validate navigation
->>    - Verify Intenvory Item Images from details page
->>    - Verify Intenvory Item Titles from details page
->>    - Verify Intenvory Item Descriptions from details page
->>    - Verify Intenvory Item Prices from details page
->>    - Verify A to Z Sorting
->>    - Verify Z to A Sorting
->>    - Verify Price High to Low Sorting
->>    - Verify Price Low to High Sorting
-> - Cart Page
->>    - Verify Adding Items to Cart
->>    - Verify Removing Items from Cart
->>    - Verify Button Text Change and Functionality
->>    - Verify Adding Items to Cart from details page
->>    - Verify Removing Items from Cart from details page
->>    - Verify Button Text Change and Functionality on details page
->>    - Verify Item count on cart icon
->>    - Verify Item Titles on Cart
->>    - Verify Item Descriptions on Cart
->>    - Verify Item Prices on Cart
->>    - Verify Item Quantity on Cart
->>    - Verify Removing items from Cart from the Cart Page
-> - Checkout page
->>    - Verify FirstName for Checkout
->>    - Verify LastName for Checkout
->>    - Verify PostalCode for Checkout
->>    - Verify Error Messages
->>    - Verify Item Title on Checkout Page
->>    - Verify Item Description on Checkout Page
->>    - Verify Item Price on Checkout Page
->>    - Verify Item Quantity on Checkout Page
->>    - Verify Shipping information
->>    - Verify Payment information
->>    - Verify Calculation of Item Total
->>    - Verify Calculation of Total
->>   - Verify Thank You Page
->>   - Verify Logout
+<details>
+  <summary>Login Page</summary>
+  <ul>
+   <li>Verify Logo of Swaglabs</li>
+   <li>Verify Swaglabs Mascot</li>
+   <li>Verify Login with Invalid User</li>
+   <li>Verify Error Messages</li>
+   <li>Verify login with Locked out User</li>
+   <li>Verify login with Valid User</li>
+  </ul>
+</details>
+<details>
+  <summary>Inventory Page</summary>
+  <ul>
+   <li>Read Inventory Item information from csv</li>
+   <li>Verify Inventory Item Images</li>
+   <li>Verify Inventory Item Titles</li>
+   <li>Verify Inventory Item Descriptions</li>
+   <li>Verify Inventory Item Prices</li>
+   <li>Click on each item and validate navigation</li>
+   <li>Verify Intenvory Item Images from details page</li>
+   <li>Verify Intenvory Item Titles from details page</li>
+   <li>Verify Intenvory Item Descriptions from details page</li>
+   <li>Verify Intenvory Item Prices from details page</li>
+   <li>Verify A to Z Sorting</li>
+   <li>Verify Z to A Sorting</li>
+   <li>Verify Price High to Low Sorting</li>
+   <li>Verify Price Low to High Sorting</li>
+  </ul>
+</details>
+<details>
+  <summary>Cart Page</summary>
+  <ul>
+   <li>Verify Adding Items to Cart</li>
+   <li>Verify Removing Items from Cart</li>
+   <li>Verify Button Text Change and Functionality</li>
+   <li>Verify Adding Items to Cart from details page</li>
+   <li>Verify Removing Items from Cart from details page</li>
+   <li>Verify Button Text Change and Functionality on details page</li>
+   <li>Verify Item count on cart icon</li>
+   <li>Verify Item Titles on Cart</li>
+   <li>Verify Item Descriptions on Cart</li>
+   <li>Verify Item Prices on Cart</li>
+   <li>Verify Item Quantity on Cart</li>
+   <li>Verify Removing items from Cart from the Cart Page</li>
+  </ul>
+</details>
+<details>
+  <summary>Checkout page</summary>
+  <ul>
+   <li>Verify FirstName for Checkout</li>
+   <li>Verify LastName for Checkout</li>
+   <li>Verify PostalCode for Checkout</li>
+   <li>Verify Error Messages</li>
+   <li>Verify Item Title on Checkout Page</li>
+   <li>Verify Item Description on Checkout Page</li>
+   <li>Verify Item Price on Checkout Page</li>
+   <li>Verify Item Quantity on Checkout Page</li>
+   <li>Verify Shipping information</li>
+   <li>Verify Payment information</li>
+   <li>Verify Calculation of Item Total</li>
+   <li>Verify Calculation of Total</li>
+   <li>Verify Thank You Page</li>
+   <li>Verify Logout</li>
+  </ul>
+</details>  
 
 ## Acknowledgements
 
  - I used a great test website by Sauce Labs for this automation: https://www.saucedemo.com/
 
 
-## Environment Setup Guide 
+## Environment Setup Guide {#1}
 
 1. Install the latest version(3.11.0) of python from https://www.python.org/
 2. check python installation by opening the command prompt and typing in "python --version"
