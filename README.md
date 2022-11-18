@@ -8,55 +8,55 @@ Hi. This is a practice automation project using Robot Framework and Selenium.
 ## Covered Test Cases
 
 > - Login Page
->    - Verify Logo of Swaglabs
->    - Verify Swaglabs Mascot
->    - Verify Login with Invalid User
->    - Verify Error Messages
->    - Verify login with Locked out User
->    - Verify login with Valid User
+>>    - Verify Logo of Swaglabs
+>>    - Verify Swaglabs Mascot
+>>   - Verify Login with Invalid User
+>>    - Verify Error Messages
+>>    - Verify login with Locked out User
+>>    - Verify login with Valid User
 > - Inventory Page
->    - Read Inventory Item information from csv
->    - Verify Inventory Item Images
->    - Verify Inventory Item Titles
->    - Verify Inventory Item Descriptions
->    - Verify Inventory Item Prices
->    - Click on each item and validate navigation
->    - Verify Intenvory Item Images from details page
->    - Verify Intenvory Item Titles from details page
->    - Verify Intenvory Item Descriptions from details page
->    - Verify Intenvory Item Prices from details page
->    - Verify A to Z Sorting
->    - Verify Z to A Sorting
->    - Verify Price High to Low Sorting
->    - Verify Price Low to High Sorting
+>>    - Read Inventory Item information from csv
+>>    - Verify Inventory Item Images
+>>    - Verify Inventory Item Titles
+>>    - Verify Inventory Item Descriptions
+>>    - Verify Inventory Item Prices
+>>   - Click on each item and validate navigation
+>>    - Verify Intenvory Item Images from details page
+>>    - Verify Intenvory Item Titles from details page
+>>    - Verify Intenvory Item Descriptions from details page
+>>    - Verify Intenvory Item Prices from details page
+>>    - Verify A to Z Sorting
+>>    - Verify Z to A Sorting
+>>    - Verify Price High to Low Sorting
+>>    - Verify Price Low to High Sorting
 > - Cart Page
->    - Verify Adding Items to Cart
->    - Verify Removing Items from Cart
->    - Verify Button Text Change and Functionality
->    - Verify Adding Items to Cart from details page
->    - Verify Removing Items from Cart from details page
->    - Verify Button Text Change and Functionality on details page
->    - Verify Item count on cart icon
->    - Verify Item Titles on Cart
->    - Verify Item Descriptions on Cart
->    - Verify Item Prices on Cart
->    - Verify Item Quantity on Cart
->    - Verify Removing items from Cart from the Cart Page
+>>    - Verify Adding Items to Cart
+>>    - Verify Removing Items from Cart
+>>    - Verify Button Text Change and Functionality
+>>    - Verify Adding Items to Cart from details page
+>>    - Verify Removing Items from Cart from details page
+>>    - Verify Button Text Change and Functionality on details page
+>>    - Verify Item count on cart icon
+>>    - Verify Item Titles on Cart
+>>    - Verify Item Descriptions on Cart
+>>    - Verify Item Prices on Cart
+>>    - Verify Item Quantity on Cart
+>>    - Verify Removing items from Cart from the Cart Page
 > - Checkout page
->    - Verify FirstName for Checkout
->    - Verify LastName for Checkout
->    - Verify PostalCode for Checkout
->    - Verify Error Messages
->    - Verify Item Title on Checkout Page
->    - Verify Item Description on Checkout Page
->    - Verify Item Price on Checkout Page
->    - Verify Item Quantity on Checkout Page
->    - Verify Shipping information
->    - Verify Payment information
->    - Verify Calculation of Item Total
->    - Verify Calculation of Total
->   - Verify Thank You Page
->   - Verify Logout
+>>    - Verify FirstName for Checkout
+>>    - Verify LastName for Checkout
+>>    - Verify PostalCode for Checkout
+>>    - Verify Error Messages
+>>    - Verify Item Title on Checkout Page
+>>    - Verify Item Description on Checkout Page
+>>    - Verify Item Price on Checkout Page
+>>    - Verify Item Quantity on Checkout Page
+>>    - Verify Shipping information
+>>    - Verify Payment information
+>>    - Verify Calculation of Item Total
+>>    - Verify Calculation of Total
+>>   - Verify Thank You Page
+>>   - Verify Logout
 
 ## Acknowledgements
 
