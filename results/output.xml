@@ -1,0 +1,1919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.11.0 on win32)" generated="20221118 19:16:01.485" rpa="false" schemaversion="3">
+<suite id="s1" name="KeywordDefinitionFiles" source="D:\Desktop\Projects\Automation Project\robot_framework_automation\Resources\PageObject\KeywordDefinitionFiles">
+<suite id="s1-s1" name="1 LoginPage" source="D:\Desktop\Projects\Automation Project\robot_framework_automation\Resources\PageObject\KeywordDefinitionFiles\1_LoginPage.robot">
+<kw name="open browser and maximize browser window" library="CommonKeywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221118 19:16:01.767" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221118 19:16:01.766" endtime="20221118 19:16:03.468"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221118 19:16:03.468" endtime="20221118 19:16:03.582"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:01.766" endtime="20221118 19:16:03.582"/>
+</kw>
+<test id="s1-s1-t1" name="Verify Swag Labs Page Title Logo &amp; Mascot" line="17">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${page_title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221118 19:16:03.589" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.583" endtime="20221118 19:16:03.589"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:03.604" level="INFO">Current page contains element 'xpath://div[@class="login_logo"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.590" endtime="20221118 19:16:03.604"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${bot_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:03.617" level="INFO">Current page contains element 'xpath://div[@class="bot_column"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.605" endtime="20221118 19:16:03.617"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:03.582" endtime="20221118 19:16:03.618"/>
+</test>
+<test id="s1-s1-t2" name="Read and Store Usernames and Password" line="22">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${username_text}</var>
+<arg>xpath://div/h4[contains(text(), "${accepted_username_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:03.649" level="INFO">${username_text} = Accepted usernames are:
+standard_user
+locked_out_user
+problem_user
+performance_glitch_user</msg>
+<status status="PASS" starttime="20221118 19:16:03.620" endtime="20221118 19:16:03.649"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${username_text_split}</var>
+<arg>${username_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:03.650" level="INFO">${username_text_split} = ['Accepted usernames are:', 'standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']</msg>
+<status status="PASS" starttime="20221118 19:16:03.650" endtime="20221118 19:16:03.650"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${standard_username}</arg>
+<arg>${username_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:03.652" level="INFO">${standard_username} = standard_user</msg>
+<status status="PASS" starttime="20221118 19:16:03.651" endtime="20221118 19:16:03.652"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${locked_out_username}</arg>
+<arg>${username_text_split}[2]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:03.654" level="INFO">${locked_out_username} = locked_out_user</msg>
+<status status="PASS" starttime="20221118 19:16:03.652" endtime="20221118 19:16:03.654"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${password_text}</var>
+<arg>xpath://div/h4[contains(text(), "${password_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:03.688" level="INFO">${password_text} = Password for all users:
+secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:03.654" endtime="20221118 19:16:03.688"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${password_text_split}</var>
+<arg>${password_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:03.689" level="INFO">${password_text_split} = ['Password for all users:', 'secret_sauce']</msg>
+<status status="PASS" starttime="20221118 19:16:03.688" endtime="20221118 19:16:03.689"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${password}</arg>
+<arg>${password_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:03.690" level="INFO">${password} = secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:03.689" endtime="20221118 19:16:03.690"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:03.619" endtime="20221118 19:16:03.690"/>
+</test>
+<test id="s1-s1-t3" name="Verify Login With No Credentials" line="31">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:03.694" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.693" endtime="20221118 19:16:03.778"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${username_required_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:03.802" level="INFO">Element 'xpath://h3[contains(text(), "Username is required")]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:03.779" endtime="20221118 19:16:03.802"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${username_required_message}")]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:03.802" level="INFO">Clicking element 'xpath://h3[contains(text(), "Username is required")]/button'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.802" endtime="20221118 19:16:03.839"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${username_required_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20221118 19:16:03.846" level="INFO">Element 'xpath://h3[contains(text(), "Username is required")]' did not exist.</msg>
+<status status="PASS" starttime="20221118 19:16:03.840" endtime="20221118 19:16:03.846"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${username_locator}"]</arg>
+<arg>${invalid_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:03.847" level="INFO">Typing text 'tester' into text field 'xpath://input[@placeholder="Username"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.846" endtime="20221118 19:16:03.925"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:03.926" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.926" endtime="20221118 19:16:03.956"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${password_required_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:03.978" level="INFO">Element 'xpath://h3[contains(text(), "Password is required")]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:03.956" endtime="20221118 19:16:03.978"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${password_required_message}")]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:03.980" level="INFO">Clicking element 'xpath://h3[contains(text(), "Password is required")]/button'.</msg>
+<status status="PASS" starttime="20221118 19:16:03.979" endtime="20221118 19:16:04.021"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${password_required_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20221118 19:16:04.028" level="INFO">Element 'xpath://h3[contains(text(), "Password is required")]' did not exist.</msg>
+<status status="PASS" starttime="20221118 19:16:04.021" endtime="20221118 19:16:04.028"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:03.691" endtime="20221118 19:16:04.029"/>
+</test>
+<test id="s1-s1-t4" name="Verify Login With Invalid Credentials" line="42">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${username_locator}"]</arg>
+<arg>${invalid_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.030" level="INFO">Typing text 'tester' into text field 'xpath://input[@placeholder="Username"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.030" endtime="20221118 19:16:04.081"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${password_locator}"]</arg>
+<arg>${invalid_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.082" level="INFO">Typing text 'password' into text field 'xpath://input[@placeholder="Password"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.081" endtime="20221118 19:16:04.186"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.187" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.186" endtime="20221118 19:16:04.214"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${username_password_mismatch_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:04.230" level="INFO">Element 'xpath://h3[contains(text(), "Username and password do not match any user in this service")]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:04.215" endtime="20221118 19:16:04.230"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${username_password_mismatch_message}")]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.231" level="INFO">Clicking element 'xpath://h3[contains(text(), "Username and password do not match any user in this service")]/button'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.231" endtime="20221118 19:16:04.264"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${username_password_mismatch_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20221118 19:16:04.271" level="INFO">Element 'xpath://h3[contains(text(), "Username and password do not match any user in this service")]' did not exist.</msg>
+<status status="PASS" starttime="20221118 19:16:04.264" endtime="20221118 19:16:04.271"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:04.029" endtime="20221118 19:16:04.271"/>
+</test>
+<test id="s1-s1-t5" name="Verify Login With Locked Out Credentials" line="50">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${username_locator}"]</arg>
+<arg>${locked_out_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.274" level="INFO">Typing text 'locked_out_user' into text field 'xpath://input[@placeholder="Username"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.273" endtime="20221118 19:16:04.336"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${password_locator}"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.337" level="INFO">Typing text 'secret_sauce' into text field 'xpath://input[@placeholder="Password"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.336" endtime="20221118 19:16:04.396"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.397" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.397" endtime="20221118 19:16:04.427"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${locked_out_user_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:04.446" level="INFO">Element 'xpath://h3[contains(text(), "Sorry, this user has been locked out.")]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:04.427" endtime="20221118 19:16:04.446"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${locked_out_user_message}")]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.447" level="INFO">Clicking element 'xpath://h3[contains(text(), "Sorry, this user has been locked out.")]/button'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.446" endtime="20221118 19:16:04.483"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${locked_out_user_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20221118 19:16:04.491" level="INFO">Element 'xpath://h3[contains(text(), "Sorry, this user has been locked out.")]' did not exist.</msg>
+<status status="PASS" starttime="20221118 19:16:04.484" endtime="20221118 19:16:04.491"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:04.272" endtime="20221118 19:16:04.492"/>
+</test>
+<test id="s1-s1-t6" name="Verify Login With Valid Credentials" line="58">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${username_locator}"]</arg>
+<arg>${standard_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.494" level="INFO">Typing text 'standard_user' into text field 'xpath://input[@placeholder="Username"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.493" endtime="20221118 19:16:04.553"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${password_locator}"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.554" level="INFO">Typing text 'secret_sauce' into text field 'xpath://input[@placeholder="Password"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.553" endtime="20221118 19:16:04.612"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.613" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.613" endtime="20221118 19:16:04.672"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${inventory_page_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221118 19:16:04.672" endtime="20221118 19:16:04.684"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:04.493" endtime="20221118 19:16:04.685"/>
+</test>
+<test id="s1-s1-t7" name="Verify Logout" line="64">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(), "${sidebar_locator}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:04.686" level="INFO">Clicking element 'xpath://button[contains(text(), "Open Menu")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:04.686" endtime="20221118 19:16:04.729"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221118 19:16:04.730" endtime="20221118 19:16:05.000"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:05.002" level="INFO">Clicking element 'xpath://a[contains(text(), "Logout")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:05.001" endtime="20221118 19:16:05.044"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:05.060" level="INFO">Element 'xpath://div[@class="login_logo"]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:05.044" endtime="20221118 19:16:05.060"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:04.686" endtime="20221118 19:16:05.061"/>
+</test>
+<kw name="close browser and clear session" library="CommonKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221118 19:16:05.062" endtime="20221118 19:16:07.142"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:05.062" endtime="20221118 19:16:07.142"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:01.517" endtime="20221118 19:16:07.142"/>
+</suite>
+<suite id="s1-s2" name="2 InventoryPage" source="D:\Desktop\Projects\Automation Project\robot_framework_automation\Resources\PageObject\KeywordDefinitionFiles\2_InventoryPage.robot">
+<kw name="open browser and maximize browser window" library="CommonKeywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221118 19:16:07.155" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221118 19:16:07.155" endtime="20221118 19:16:08.761"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221118 19:16:08.762" endtime="20221118 19:16:08.877"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:07.155" endtime="20221118 19:16:08.877"/>
+</kw>
+<test id="s1-s2-t1" name="Verify Swag Labs Page Title Logo &amp; Mascot" line="21">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${page_title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221118 19:16:08.883" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20221118 19:16:08.878" endtime="20221118 19:16:08.883"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:08.895" level="INFO">Current page contains element 'xpath://div[@class="login_logo"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:08.883" endtime="20221118 19:16:08.895"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${bot_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:08.905" level="INFO">Current page contains element 'xpath://div[@class="bot_column"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:08.895" endtime="20221118 19:16:08.905"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:08.877" endtime="20221118 19:16:08.906"/>
+</test>
+<test id="s1-s2-t2" name="Read and Store Username and Password" line="26">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${username_text}</var>
+<arg>xpath://div/h4[contains(text(), "${accepted_username_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:08.936" level="INFO">${username_text} = Accepted usernames are:
+standard_user
+locked_out_user
+problem_user
+performance_glitch_user</msg>
+<status status="PASS" starttime="20221118 19:16:08.910" endtime="20221118 19:16:08.936"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${username_text_split}</var>
+<arg>${username_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:08.937" level="INFO">${username_text_split} = ['Accepted usernames are:', 'standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']</msg>
+<status status="PASS" starttime="20221118 19:16:08.937" endtime="20221118 19:16:08.937"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${standard_username}</arg>
+<arg>${username_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:08.938" level="INFO">${standard_username} = standard_user</msg>
+<status status="PASS" starttime="20221118 19:16:08.937" endtime="20221118 19:16:08.938"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${password_text}</var>
+<arg>xpath://div/h4[contains(text(), "${password_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:08.962" level="INFO">${password_text} = Password for all users:
+secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:08.938" endtime="20221118 19:16:08.962"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${password_text_split}</var>
+<arg>${password_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:08.963" level="INFO">${password_text_split} = ['Password for all users:', 'secret_sauce']</msg>
+<status status="PASS" starttime="20221118 19:16:08.963" endtime="20221118 19:16:08.963"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${password}</arg>
+<arg>${password_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:08.964" level="INFO">${password} = secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:08.963" endtime="20221118 19:16:08.964"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:08.909" endtime="20221118 19:16:08.964"/>
+</test>
+<test id="s1-s2-t3" name="Read Data from Excel and Store" line="34">
+<kw name="Read Inventory Data From CSV File and Return List" library="CommonKeywords">
+<var>${item_title_temp}</var>
+<var>${item_description_temp}</var>
+<var>${item_price_temp}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${csvfile}</var>
+<arg>../TestData/inventory.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221118 19:16:08.967" level="INFO" html="true">Getting file '&lt;a href="file://D:\Desktop\Projects\Automation Project\TestData\inventory.csv"&gt;D:\Desktop\Projects\Automation Project\TestData\inventory.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20221118 19:16:08.967" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Desktop\\Projects\\Automation Project\\TestData\\inventory.csv'</msg>
+<status status="FAIL" starttime="20221118 19:16:08.967" endtime="20221118 19:16:08.967"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{initial_list}</var>
+<arg>${csvfile}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.967" endtime="20221118 19:16:08.968"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{modified_list}</var>
+<arg>@{initial_list}</arg>
+<arg>1</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_title}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_description}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_price}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{modified_list}</value>
+<iter>
+<var name="${item}"/>
+<kw name="Split String" library="String">
+<var>@{separated_list}</var>
+<arg>${item}</arg>
+<arg>|</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_title}</arg>
+<arg>${separated_list}[0]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_description}</arg>
+<arg>${separated_list}[1]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_price}</arg>
+<arg>${separated_list}[2]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</iter>
+<status status="NOT RUN" starttime="20221118 19:16:08.968" endtime="20221118 19:16:08.968"/>
+</for>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${item_title}</arg>
+<arg>${item_description}</arg>
+<arg>${item_price}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.969" endtime="20221118 19:16:08.969"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:08.967" endtime="20221118 19:16:08.969"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_title}</arg>
+<arg>${item_title_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.969" endtime="20221118 19:16:08.969"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_description}</arg>
+<arg>${item_description_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.969" endtime="20221118 19:16:08.969"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_price}</arg>
+<arg>${item_price_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.970" endtime="20221118 19:16:08.970"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${number_of_items_temp}</var>
+<arg>${item_title}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.970" endtime="20221118 19:16:08.970"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${number_of_items}</arg>
+<arg>${number_of_items_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:08.971" endtime="20221118 19:16:08.971"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:08.966" endtime="20221118 19:16:08.971">FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Desktop\\Projects\\Automation Project\\TestData\\inventory.csv'</status>
+</test>
+<test id="s1-s2-t4" name="Verify Login With Valid Credentials" line="42">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${username_locator}"]</arg>
+<arg>${standard_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:08.978" level="INFO">Typing text 'standard_user' into text field 'xpath://input[@placeholder="Username"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:08.977" endtime="20221118 19:16:09.085"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${password_locator}"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.086" level="INFO">Typing text 'secret_sauce' into text field 'xpath://input[@placeholder="Password"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.085" endtime="20221118 19:16:09.166"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.167" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.166" endtime="20221118 19:16:09.254"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${inventory_page_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221118 19:16:09.254" endtime="20221118 19:16:09.266"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:08.974" endtime="20221118 19:16:09.267"/>
+</test>
+<test id="s1-s2-t5" name="Verify Inventory Item Image, Title, Description and Price" line="48">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${inventory_page_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221118 19:16:09.268" endtime="20221118 19:16:09.275"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${product_no}</var>
+<value>${number_of_items}</value>
+<iter>
+<var name="${product_no}"/>
+<kw name="verify image, title, description, price of inventory item">
+<arg>${item_title}[${product_no}]</arg>
+<arg>${item_description}[${product_no}]</arg>
+<arg>${item_price}[${product_no}]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.276" endtime="20221118 19:16:09.276"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:09.276" endtime="20221118 19:16:09.276"/>
+</iter>
+<msg timestamp="20221118 19:16:09.276" level="FAIL">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</msg>
+<status status="FAIL" starttime="20221118 19:16:09.275" endtime="20221118 19:16:09.276"/>
+</for>
+<status status="FAIL" starttime="20221118 19:16:09.268" endtime="20221118 19:16:09.277">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</status>
+</test>
+<test id="s1-s2-t6" name="Verify Click on Inventory Production Title and Verify Image, Title, Description, Price From Details" line="54">
+<for flavor="IN RANGE">
+<var>${product_no}</var>
+<value>${number_of_items}</value>
+<iter>
+<var name="${product_no}"/>
+<kw name="click on product title and verify image, title, description and price">
+<arg>${item_title}[${product_no}]</arg>
+<arg>${item_description}[${product_no}]</arg>
+<arg>${item_price}[${product_no}]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.279" endtime="20221118 19:16:09.279"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:09.279" endtime="20221118 19:16:09.279"/>
+</iter>
+<msg timestamp="20221118 19:16:09.279" level="FAIL">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</msg>
+<status status="FAIL" starttime="20221118 19:16:09.279" endtime="20221118 19:16:09.279"/>
+</for>
+<status status="FAIL" starttime="20221118 19:16:09.278" endtime="20221118 19:16:09.280">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</status>
+</test>
+<test id="s1-s2-t7" name="Verify Ascending Sorting Check" line="59">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://select/option[contains(text(), "${sorting_option_a_to_z}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.283" level="INFO">Clicking element 'xpath://select/option[contains(text(), "Name (A to Z)")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.283" endtime="20221118 19:16:09.312"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${inventory_item_count}</var>
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../../../../../div</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.313" level="FAIL">String '${item_title}' has no item in index 0.</msg>
+<status status="FAIL" starttime="20221118 19:16:09.312" endtime="20221118 19:16:09.313"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{first_letter_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.313" endtime="20221118 19:16:09.313"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${inventory_item_count}+1</value>
+<iter>
+<var name="${index}"/>
+<kw name="get first letter of inventory items">
+<var>${first_letter_temp}</var>
+<arg>${item_title}[0]</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.314" endtime="20221118 19:16:09.314"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${first_letter_list}</arg>
+<arg>${first_letter_temp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.314" endtime="20221118 19:16:09.314"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:09.314" endtime="20221118 19:16:09.314"/>
+</iter>
+<status status="NOT RUN" starttime="20221118 19:16:09.313" endtime="20221118 19:16:09.314"/>
+</for>
+<kw name="Copy List" library="Collections">
+<var>@{copy_first_letter_list}</var>
+<arg>${first_letter_list}</arg>
+<doc>Returns a copy of the given list.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.314" endtime="20221118 19:16:09.314"/>
+</kw>
+<kw name="Sort List" library="Collections">
+<arg>${copy_first_letter_list}</arg>
+<doc>Sorts the given list in place.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.315" endtime="20221118 19:16:09.315"/>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${copy_first_letter_list}</arg>
+<arg>${first_letter_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.315" endtime="20221118 19:16:09.315"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:09.282" endtime="20221118 19:16:09.315">String '${item_title}' has no item in index 0.</status>
+</test>
+<test id="s1-s2-t8" name="Verify Descending Sorting Chack" line="71">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://select/option[contains(text(), "${sorting_option_z_to_a}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.318" level="INFO">Clicking element 'xpath://select/option[contains(text(), "Name (Z to A)")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.318" endtime="20221118 19:16:09.355"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${inventory_item_count}</var>
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../../../../../div</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.356" level="FAIL">String '${item_title}' has no item in index 0.</msg>
+<status status="FAIL" starttime="20221118 19:16:09.356" endtime="20221118 19:16:09.356"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{first_letter_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.356" endtime="20221118 19:16:09.356"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${inventory_item_count}+1</value>
+<iter>
+<var name="${index}"/>
+<kw name="get first letter of inventory items">
+<var>${first_letter_temp}</var>
+<arg>${item_title}[0]</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.357" endtime="20221118 19:16:09.357"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${first_letter_list}</arg>
+<arg>${first_letter_temp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.357" endtime="20221118 19:16:09.357"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:09.357" endtime="20221118 19:16:09.357"/>
+</iter>
+<status status="NOT RUN" starttime="20221118 19:16:09.357" endtime="20221118 19:16:09.357"/>
+</for>
+<kw name="Copy List" library="Collections">
+<var>@{copy_first_letter_list}</var>
+<arg>${first_letter_list}</arg>
+<doc>Returns a copy of the given list.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.357" endtime="20221118 19:16:09.357"/>
+</kw>
+<kw name="Sort List" library="Collections">
+<arg>${copy_first_letter_list}</arg>
+<doc>Sorts the given list in place.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.358" endtime="20221118 19:16:09.358"/>
+</kw>
+<kw name="Reverse List" library="Collections">
+<arg>${copy_first_letter_list}</arg>
+<doc>Reverses the given list in place.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.358" endtime="20221118 19:16:09.358"/>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${copy_first_letter_list}</arg>
+<arg>${first_letter_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.359" endtime="20221118 19:16:09.359"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:09.317" endtime="20221118 19:16:09.359">String '${item_title}' has no item in index 0.</status>
+</test>
+<test id="s1-s2-t9" name="Verify Price Low to High Sorting Chack" line="84">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://select/option[contains(text(), "${sorting_option_low_to_high}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.362" level="INFO">Clicking element 'xpath://select/option[contains(text(), "Price (low to high)")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.361" endtime="20221118 19:16:09.398"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${inventory_item_count}</var>
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../../../../../div</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.399" level="FAIL">String '${item_title}' has no item in index 0.</msg>
+<status status="FAIL" starttime="20221118 19:16:09.399" endtime="20221118 19:16:09.399"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{price_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.399" endtime="20221118 19:16:09.399"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${inventory_item_count}+1</value>
+<iter>
+<var name="${index}"/>
+<kw name="get price of inventory items">
+<var>${price_list_temp}</var>
+<arg>${item_title}[0]</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.400" endtime="20221118 19:16:09.400"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${price_list}</arg>
+<arg>${price_list_temp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.400" endtime="20221118 19:16:09.400"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:09.400" endtime="20221118 19:16:09.400"/>
+</iter>
+<status status="NOT RUN" starttime="20221118 19:16:09.400" endtime="20221118 19:16:09.400"/>
+</for>
+<kw name="Copy List" library="Collections">
+<var>@{copy_price_list}</var>
+<arg>${price_list}</arg>
+<doc>Returns a copy of the given list.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.400" endtime="20221118 19:16:09.400"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${sorted_copy_price_list}</var>
+<arg>sorted(${copy_price_list}, key=float)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.401" endtime="20221118 19:16:09.401"/>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${price_list}</arg>
+<arg>${sorted_copy_price_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.401" endtime="20221118 19:16:09.401"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:09.361" endtime="20221118 19:16:09.402">String '${item_title}' has no item in index 0.</status>
+</test>
+<test id="s1-s2-t10" name="Verify Price High to Low Sorting Chack" line="96">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://select/option[contains(text(), "${sorting_option_high_to_low}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.404" level="INFO">Clicking element 'xpath://select/option[contains(text(), "Price (high to low)")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.403" endtime="20221118 19:16:09.438"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${inventory_item_count}</var>
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../../../../../div</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.439" level="FAIL">String '${item_title}' has no item in index 0.</msg>
+<status status="FAIL" starttime="20221118 19:16:09.439" endtime="20221118 19:16:09.439"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{price_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.439" endtime="20221118 19:16:09.439"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${inventory_item_count}+1</value>
+<iter>
+<var name="${index}"/>
+<kw name="get price of inventory items">
+<var>${price_list_temp}</var>
+<arg>${item_title}[0]</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.440" endtime="20221118 19:16:09.440"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${price_list}</arg>
+<arg>${price_list_temp}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.440" endtime="20221118 19:16:09.440"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:09.440" endtime="20221118 19:16:09.440"/>
+</iter>
+<status status="NOT RUN" starttime="20221118 19:16:09.440" endtime="20221118 19:16:09.440"/>
+</for>
+<kw name="Copy List" library="Collections">
+<var>@{copy_price_list}</var>
+<arg>${price_list}</arg>
+<doc>Returns a copy of the given list.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.440" endtime="20221118 19:16:09.440"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${sorted_copy_price_list}</var>
+<arg>sorted(${copy_price_list}, key=float, reverse=True)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.441" endtime="20221118 19:16:09.441"/>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${price_list}</arg>
+<arg>${sorted_copy_price_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.441" endtime="20221118 19:16:09.441"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:09.403" endtime="20221118 19:16:09.442">String '${item_title}' has no item in index 0.</status>
+</test>
+<test id="s1-s2-t11" name="Verify Add Items to Cart" line="108">
+<for flavor="IN RANGE">
+<var>${product_no}</var>
+<value>${number_of_items}</value>
+<iter>
+<var name="${product_no}"/>
+<kw name="add item to cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[${product_no}]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.443" endtime="20221118 19:16:09.443"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:09.443" endtime="20221118 19:16:09.443"/>
+</iter>
+<msg timestamp="20221118 19:16:09.443" level="FAIL">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</msg>
+<status status="FAIL" starttime="20221118 19:16:09.443" endtime="20221118 19:16:09.444"/>
+</for>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "6")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.444" endtime="20221118 19:16:09.444"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:09.443" endtime="20221118 19:16:09.444">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</status>
+</test>
+<test id="s1-s2-t12" name="Verify Remove Items from Cart" line="114">
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[5]</arg>
+<msg timestamp="20221118 19:16:09.446" level="FAIL">String '${item_title}' has no item in index 5.</msg>
+<status status="FAIL" starttime="20221118 19:16:09.446" endtime="20221118 19:16:09.446"/>
+</kw>
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[1]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:09.446" endtime="20221118 19:16:09.446"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "4")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.446" endtime="20221118 19:16:09.446"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:09.445" endtime="20221118 19:16:09.446">String '${item_title}' has no item in index 5.</status>
+</test>
+<test id="s1-s2-t13" name="Verify Add and Remove Item from Cart from Item Details" line="119">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[contains(text(), "${item_title}[0]")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.448" level="FAIL">String '${item_title}' has no item in index 0.</msg>
+<status status="FAIL" starttime="20221118 19:16:09.448" endtime="20221118 19:16:09.448"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../button[contains(text(), "${button_text_remove_from_cart}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.448" endtime="20221118 19:16:09.448"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../button[contains(text(), "${button_text_remove_from_cart}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.449" endtime="20221118 19:16:09.449"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../button[contains(text(), "${button_text_add_to_cart}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.449" endtime="20221118 19:16:09.449"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "3")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.449" endtime="20221118 19:16:09.449"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(), "${button_text_back_to_products}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.449" endtime="20221118 19:16:09.449"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(text(), "${item_title}[0]")]/../../following-sibling::div//button[contains(text(), "${button_text_add_to_cart}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.449" endtime="20221118 19:16:09.450"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "3")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:09.450" endtime="20221118 19:16:09.450"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:09.448" endtime="20221118 19:16:09.450">String '${item_title}' has no item in index 0.</status>
+</test>
+<test id="s1-s2-t14" name="Verify Logout" line="129">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(), "${sidebar_locator}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.452" level="INFO">Clicking element 'xpath://button[contains(text(), "Open Menu")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.451" endtime="20221118 19:16:09.494"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221118 19:16:09.494" endtime="20221118 19:16:09.738"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:09.740" level="INFO">Clicking element 'xpath://a[contains(text(), "Logout")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:09.739" endtime="20221118 19:16:09.783"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:09.800" level="INFO">Element 'xpath://div[@class="login_logo"]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:09.783" endtime="20221118 19:16:09.800"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:09.451" endtime="20221118 19:16:09.800"/>
+</test>
+<kw name="close browser and clear session" library="CommonKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221118 19:16:09.802" endtime="20221118 19:16:11.891"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:09.802" endtime="20221118 19:16:11.891"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:07.144" endtime="20221118 19:16:11.891"/>
+</suite>
+<suite id="s1-s3" name="3 CartPage" source="D:\Desktop\Projects\Automation Project\robot_framework_automation\Resources\PageObject\KeywordDefinitionFiles\3_CartPage.robot">
+<kw name="open browser and maximize browser window" library="CommonKeywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221118 19:16:11.906" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221118 19:16:11.906" endtime="20221118 19:16:14.228"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221118 19:16:14.229" endtime="20221118 19:16:14.367"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:11.906" endtime="20221118 19:16:14.368"/>
+</kw>
+<test id="s1-s3-t1" name="Verify Swag Labs Page Title Logo &amp; Mascot" line="21">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${page_title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221118 19:16:14.386" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.370" endtime="20221118 19:16:14.386"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:14.427" level="INFO">Current page contains element 'xpath://div[@class="login_logo"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.388" endtime="20221118 19:16:14.427"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${bot_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:14.444" level="INFO">Current page contains element 'xpath://div[@class="bot_column"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.428" endtime="20221118 19:16:14.444"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:14.368" endtime="20221118 19:16:14.445"/>
+</test>
+<test id="s1-s3-t2" name="Read and Store Username and Password" line="26">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${username_text}</var>
+<arg>xpath://div/h4[contains(text(), "${accepted_username_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.474" level="INFO">${username_text} = Accepted usernames are:
+standard_user
+locked_out_user
+problem_user
+performance_glitch_user</msg>
+<status status="PASS" starttime="20221118 19:16:14.447" endtime="20221118 19:16:14.474"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${username_text_split}</var>
+<arg>${username_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:14.475" level="INFO">${username_text_split} = ['Accepted usernames are:', 'standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']</msg>
+<status status="PASS" starttime="20221118 19:16:14.474" endtime="20221118 19:16:14.475"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${standard_username}</arg>
+<arg>${username_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:14.475" level="INFO">${standard_username} = standard_user</msg>
+<status status="PASS" starttime="20221118 19:16:14.475" endtime="20221118 19:16:14.475"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${password_text}</var>
+<arg>xpath://div/h4[contains(text(), "${password_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.499" level="INFO">${password_text} = Password for all users:
+secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:14.476" endtime="20221118 19:16:14.499"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${password_text_split}</var>
+<arg>${password_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:14.500" level="INFO">${password_text_split} = ['Password for all users:', 'secret_sauce']</msg>
+<status status="PASS" starttime="20221118 19:16:14.500" endtime="20221118 19:16:14.500"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${password}</arg>
+<arg>${password_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:14.501" level="INFO">${password} = secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:14.500" endtime="20221118 19:16:14.501"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:14.446" endtime="20221118 19:16:14.501"/>
+</test>
+<test id="s1-s3-t3" name="Read Data from Excel and Store" line="34">
+<kw name="Read Inventory Data From CSV File and Return List" library="CommonKeywords">
+<var>${item_title_temp}</var>
+<var>${item_description_temp}</var>
+<var>${item_price_temp}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${csvfile}</var>
+<arg>../TestData/inventory.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221118 19:16:14.503" level="INFO" html="true">Getting file '&lt;a href="file://D:\Desktop\Projects\Automation Project\TestData\inventory.csv"&gt;D:\Desktop\Projects\Automation Project\TestData\inventory.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20221118 19:16:14.504" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Desktop\\Projects\\Automation Project\\TestData\\inventory.csv'</msg>
+<status status="FAIL" starttime="20221118 19:16:14.503" endtime="20221118 19:16:14.504"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{initial_list}</var>
+<arg>${csvfile}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.504" endtime="20221118 19:16:14.504"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{modified_list}</var>
+<arg>@{initial_list}</arg>
+<arg>1</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.504" endtime="20221118 19:16:14.504"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_title}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_description}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_price}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{modified_list}</value>
+<iter>
+<var name="${item}"/>
+<kw name="Split String" library="String">
+<var>@{separated_list}</var>
+<arg>${item}</arg>
+<arg>|</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_title}</arg>
+<arg>${separated_list}[0]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_description}</arg>
+<arg>${separated_list}[1]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_price}</arg>
+<arg>${separated_list}[2]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</iter>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</for>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${item_title}</arg>
+<arg>${item_description}</arg>
+<arg>${item_price}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.505" endtime="20221118 19:16:14.505"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:14.503" endtime="20221118 19:16:14.506"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_title}</arg>
+<arg>${item_title_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.506" endtime="20221118 19:16:14.506"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_description}</arg>
+<arg>${item_description_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.507" endtime="20221118 19:16:14.507"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_price}</arg>
+<arg>${item_price_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.507" endtime="20221118 19:16:14.507"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${number_of_items_temp}</var>
+<arg>${item_title}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.508" endtime="20221118 19:16:14.508"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${number_of_items}</arg>
+<arg>${number_of_items_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.508" endtime="20221118 19:16:14.508"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:14.503" endtime="20221118 19:16:14.509">FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Desktop\\Projects\\Automation Project\\TestData\\inventory.csv'</status>
+</test>
+<test id="s1-s3-t4" name="Verify Login With Valid Credentials" line="42">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${username_locator}"]</arg>
+<arg>${standard_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.511" level="INFO">Typing text 'standard_user' into text field 'xpath://input[@placeholder="Username"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.510" endtime="20221118 19:16:14.599"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${password_locator}"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.600" level="INFO">Typing text 'secret_sauce' into text field 'xpath://input[@placeholder="Password"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.599" endtime="20221118 19:16:14.677"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.678" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.677" endtime="20221118 19:16:14.765"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${inventory_page_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221118 19:16:14.765" endtime="20221118 19:16:14.776"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:14.510" endtime="20221118 19:16:14.776"/>
+</test>
+<test id="s1-s3-t5" name="Add Items to Cart" line="48">
+<for flavor="IN RANGE">
+<var>${product_no}</var>
+<value>${number_of_items}</value>
+<iter>
+<var name="${product_no}"/>
+<kw name="add item to cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[${product_no}]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:14.779" endtime="20221118 19:16:14.779"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:14.779" endtime="20221118 19:16:14.779"/>
+</iter>
+<msg timestamp="20221118 19:16:14.779" level="FAIL">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</msg>
+<status status="FAIL" starttime="20221118 19:16:14.778" endtime="20221118 19:16:14.779"/>
+</for>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "6")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.781" endtime="20221118 19:16:14.781"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:14.778" endtime="20221118 19:16:14.781">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</status>
+</test>
+<test id="s1-s3-t6" name="Verify Remove Items from Cart" line="54">
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[5]</arg>
+<msg timestamp="20221118 19:16:14.783" level="FAIL">String '${item_title}' has no item in index 5.</msg>
+<status status="FAIL" starttime="20221118 19:16:14.783" endtime="20221118 19:16:14.783"/>
+</kw>
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[1]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:14.784" endtime="20221118 19:16:14.784"/>
+</kw>
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[0]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:14.784" endtime="20221118 19:16:14.784"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "3")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.784" endtime="20221118 19:16:14.784"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:14.783" endtime="20221118 19:16:14.785">String '${item_title}' has no item in index 5.</status>
+</test>
+<test id="s1-s3-t7" name="Verify Cart Items" line="60">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.787" level="INFO">Clicking element 'xpath://a[@class="shopping_cart_link"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.787" endtime="20221118 19:16:14.834"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${cart_page_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221118 19:16:14.834" endtime="20221118 19:16:14.848"/>
+</kw>
+<kw name="verify cart item quantity, title, description, price">
+<arg>${item_title}[2]</arg>
+<arg>${item_description}[2]</arg>
+<arg>${item_price}[2]</arg>
+<msg timestamp="20221118 19:16:14.849" level="FAIL">String '${item_title}' has no item in index 2.</msg>
+<status status="FAIL" starttime="20221118 19:16:14.849" endtime="20221118 19:16:14.849"/>
+</kw>
+<kw name="verify cart item quantity, title, description, price">
+<arg>${item_title}[3]</arg>
+<arg>${item_description}[3]</arg>
+<arg>${item_price}[3]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:14.850" endtime="20221118 19:16:14.850"/>
+</kw>
+<kw name="verify cart item quantity, title, description, price">
+<arg>${item_title}[4]</arg>
+<arg>${item_description}[4]</arg>
+<arg>${item_price}[4]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:14.850" endtime="20221118 19:16:14.850"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:14.786" endtime="20221118 19:16:14.850">String '${item_title}' has no item in index 2.</status>
+</test>
+<test id="s1-s3-t8" name="Verify Remove From Cart" line="67">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[contains(text(), "${item_title}[2]")]/../..//button[contains(text(), "${button_text_remove_from_cart}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.853" level="FAIL">String '${item_title}' has no item in index 2.</msg>
+<status status="FAIL" starttime="20221118 19:16:14.853" endtime="20221118 19:16:14.853"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.854" endtime="20221118 19:16:14.854"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${cart_items_count}</var>
+<arg>xpath://div[contains(text(), "${item_title}[3]")]/../../../../div[@class="${cart_item_locator}"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.854" endtime="20221118 19:16:14.854"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${cart_item_count_in_icon}</var>
+<arg>xpath://a[@class="${cart_counter_locator}"]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.854" endtime="20221118 19:16:14.854"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${cart_item_count_in_icon}</var>
+<arg>${cart_item_count_in_icon}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.855" endtime="20221118 19:16:14.855"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${cart_items_count}</arg>
+<arg>${cart_item_count_in_icon}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.855" endtime="20221118 19:16:14.855"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "2")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:14.855" endtime="20221118 19:16:14.855"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:14.853" endtime="20221118 19:16:14.856">String '${item_title}' has no item in index 2.</status>
+</test>
+<test id="s1-s3-t9" name="Verify Logout" line="77">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(), "${sidebar_locator}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:14.859" level="INFO">Clicking element 'xpath://button[contains(text(), "Open Menu")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:14.859" endtime="20221118 19:16:14.897"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221118 19:16:14.897" endtime="20221118 19:16:15.137"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:15.138" level="INFO">Clicking element 'xpath://a[contains(text(), "Logout")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:15.137" endtime="20221118 19:16:15.172"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:15.188" level="INFO">Element 'xpath://div[@class="login_logo"]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:15.172" endtime="20221118 19:16:15.188"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:14.857" endtime="20221118 19:16:15.189"/>
+</test>
+<kw name="close browser and clear session" library="CommonKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221118 19:16:15.190" endtime="20221118 19:16:17.282"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:15.190" endtime="20221118 19:16:17.283"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:11.894" endtime="20221118 19:16:17.283"/>
+</suite>
+<suite id="s1-s4" name="4 CheckoutPages" source="D:\Desktop\Projects\Automation Project\robot_framework_automation\Resources\PageObject\KeywordDefinitionFiles\4_CheckoutPages.robot">
+<kw name="open browser and maximize browser window" library="CommonKeywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221118 19:16:17.305" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221118 19:16:17.305" endtime="20221118 19:16:19.465"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221118 19:16:19.466" endtime="20221118 19:16:19.581"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:17.305" endtime="20221118 19:16:19.581"/>
+</kw>
+<test id="s1-s4-t1" name="Verify Swag Labs Page Title Logo &amp; Mascot" line="22">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${page_title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20221118 19:16:19.588" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20221118 19:16:19.581" endtime="20221118 19:16:19.588"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:19.600" level="INFO">Current page contains element 'xpath://div[@class="login_logo"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:19.588" endtime="20221118 19:16:19.600"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class="${bot_locator}"]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221118 19:16:19.612" level="INFO">Current page contains element 'xpath://div[@class="bot_column"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:19.601" endtime="20221118 19:16:19.612"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:19.581" endtime="20221118 19:16:19.612"/>
+</test>
+<test id="s1-s4-t2" name="Read and Store Username and Password" line="27">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${username_text}</var>
+<arg>xpath://div/h4[contains(text(), "${accepted_username_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:19.642" level="INFO">${username_text} = Accepted usernames are:
+standard_user
+locked_out_user
+problem_user
+performance_glitch_user</msg>
+<status status="PASS" starttime="20221118 19:16:19.615" endtime="20221118 19:16:19.642"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${username_text_split}</var>
+<arg>${username_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:19.643" level="INFO">${username_text_split} = ['Accepted usernames are:', 'standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']</msg>
+<status status="PASS" starttime="20221118 19:16:19.643" endtime="20221118 19:16:19.643"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${standard_username}</arg>
+<arg>${username_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:19.644" level="INFO">${standard_username} = standard_user</msg>
+<status status="PASS" starttime="20221118 19:16:19.643" endtime="20221118 19:16:19.644"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${password_text}</var>
+<arg>xpath://div/h4[contains(text(), "${password_locator}")]//parent::div</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:19.666" level="INFO">${password_text} = Password for all users:
+secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:19.644" endtime="20221118 19:16:19.666"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${password_text_split}</var>
+<arg>${password_text}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20221118 19:16:19.667" level="INFO">${password_text_split} = ['Password for all users:', 'secret_sauce']</msg>
+<status status="PASS" starttime="20221118 19:16:19.666" endtime="20221118 19:16:19.667"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${password}</arg>
+<arg>${password_text_split}[1]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221118 19:16:19.668" level="INFO">${password} = secret_sauce</msg>
+<status status="PASS" starttime="20221118 19:16:19.667" endtime="20221118 19:16:19.668"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:19.614" endtime="20221118 19:16:19.669"/>
+</test>
+<test id="s1-s4-t3" name="Read Data from Excel and Store" line="35">
+<kw name="Read Inventory Data From CSV File and Return List" library="CommonKeywords">
+<var>${item_title_temp}</var>
+<var>${item_description_temp}</var>
+<var>${item_price_temp}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${csvfile}</var>
+<arg>../TestData/inventory.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221118 19:16:19.672" level="INFO" html="true">Getting file '&lt;a href="file://D:\Desktop\Projects\Automation Project\TestData\inventory.csv"&gt;D:\Desktop\Projects\Automation Project\TestData\inventory.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20221118 19:16:19.672" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Desktop\\Projects\\Automation Project\\TestData\\inventory.csv'</msg>
+<status status="FAIL" starttime="20221118 19:16:19.672" endtime="20221118 19:16:19.672"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{initial_list}</var>
+<arg>${csvfile}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.672" endtime="20221118 19:16:19.672"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{modified_list}</var>
+<arg>@{initial_list}</arg>
+<arg>1</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.672" endtime="20221118 19:16:19.672"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_title}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.673"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_description}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.673"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{item_price}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.673"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{modified_list}</value>
+<iter>
+<var name="${item}"/>
+<kw name="Split String" library="String">
+<var>@{separated_list}</var>
+<arg>${item}</arg>
+<arg>|</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.673"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_title}</arg>
+<arg>${separated_list}[0]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.673"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_description}</arg>
+<arg>${separated_list}[1]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.674"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${item_price}</arg>
+<arg>${separated_list}[2]</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.674" endtime="20221118 19:16:19.674"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.674"/>
+</iter>
+<status status="NOT RUN" starttime="20221118 19:16:19.673" endtime="20221118 19:16:19.674"/>
+</for>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${item_title}</arg>
+<arg>${item_description}</arg>
+<arg>${item_price}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.674" endtime="20221118 19:16:19.674"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:19.672" endtime="20221118 19:16:19.674"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_title}</arg>
+<arg>${item_title_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.674" endtime="20221118 19:16:19.674"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_description}</arg>
+<arg>${item_description_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.675" endtime="20221118 19:16:19.675"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${item_price}</arg>
+<arg>${item_price_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.675" endtime="20221118 19:16:19.675"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${number_of_items_temp}</var>
+<arg>${item_title}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.676" endtime="20221118 19:16:19.676"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${number_of_items}</arg>
+<arg>${number_of_items_temp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.676" endtime="20221118 19:16:19.676"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:19.671" endtime="20221118 19:16:19.677">FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Desktop\\Projects\\Automation Project\\TestData\\inventory.csv'</status>
+</test>
+<test id="s1-s4-t4" name="Verify Login With Valid Credentials" line="43">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${username_locator}"]</arg>
+<arg>${standard_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:19.678" level="INFO">Typing text 'standard_user' into text field 'xpath://input[@placeholder="Username"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:19.678" endtime="20221118 19:16:19.773"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${password_locator}"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:19.773" level="INFO">Typing text 'secret_sauce' into text field 'xpath://input[@placeholder="Password"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:19.773" endtime="20221118 19:16:19.854"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_login}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:19.855" level="INFO">Clicking element 'xpath://input[@value="Login"]'.</msg>
+<status status="PASS" starttime="20221118 19:16:19.854" endtime="20221118 19:16:19.942"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${inventory_page_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20221118 19:16:19.942" endtime="20221118 19:16:19.973"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:19.678" endtime="20221118 19:16:19.974"/>
+</test>
+<test id="s1-s4-t5" name="Verify Add Items to Cart" line="49">
+<for flavor="IN RANGE">
+<var>${product_no}</var>
+<value>${number_of_items}</value>
+<iter>
+<var name="${product_no}"/>
+<kw name="add item to cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[${product_no}]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:19.976" endtime="20221118 19:16:19.976"/>
+</kw>
+<status status="NOT RUN" starttime="20221118 19:16:19.976" endtime="20221118 19:16:19.976"/>
+</iter>
+<msg timestamp="20221118 19:16:19.976" level="FAIL">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</msg>
+<status status="FAIL" starttime="20221118 19:16:19.976" endtime="20221118 19:16:19.977"/>
+</for>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "6")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.977" endtime="20221118 19:16:19.977"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:19.975" endtime="20221118 19:16:19.978">Converting FOR IN RANGE values failed: SyntaxError: invalid syntax (&lt;string&gt;, line 0).</status>
+</test>
+<test id="s1-s4-t6" name="Verify Remove Items from Cart" line="55">
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[5]</arg>
+<msg timestamp="20221118 19:16:19.980" level="FAIL">String '${item_title}' has no item in index 5.</msg>
+<status status="FAIL" starttime="20221118 19:16:19.980" endtime="20221118 19:16:19.980"/>
+</kw>
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[1]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:19.981" endtime="20221118 19:16:19.981"/>
+</kw>
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[0]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:19.981" endtime="20221118 19:16:19.981"/>
+</kw>
+<kw name="remove item from cart and verify button text change" library="CommonInventoryKeywords">
+<arg>${item_title}[2]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:19.981" endtime="20221118 19:16:19.981"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]//span[contains(text(), "2")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.982" endtime="20221118 19:16:19.982"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://a[@class="${cart_counter_locator}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:19.982" endtime="20221118 19:16:19.982"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:19.979" endtime="20221118 19:16:19.982">String '${item_title}' has no item in index 5.</status>
+</test>
+<test id="s1-s4-t7" name="Verify Checkout step one and enter information" line="63">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(), "${button_text_checkout}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:19.985" level="INFO">Clicking element 'xpath://button[contains(text(), "Checkout")]'.</msg>
+<msg timestamp="20221118 19:16:20.296" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221118 19:16:20.296" level="FAIL">Element with locator 'xpath://button[contains(text(), "Checkout")]' not found.</msg>
+<status status="FAIL" starttime="20221118 19:16:19.985" endtime="20221118 19:16:20.298"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${checkout_page_one_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.299" endtime="20221118 19:16:20.299"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_continue}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.299" endtime="20221118 19:16:20.299"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${firstname_required_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.300" endtime="20221118 19:16:20.300"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${firstname_locator}"]</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.300" endtime="20221118 19:16:20.300"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_continue}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.300" endtime="20221118 19:16:20.300"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${lastname_required_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.301" endtime="20221118 19:16:20.301"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${lastname_locator}"]</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.301" endtime="20221118 19:16:20.301"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_continue}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.301" endtime="20221118 19:16:20.302"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://h3[contains(text(), "${postal_code_required_message}")]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.302" endtime="20221118 19:16:20.302"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://input[@placeholder="${postal_code_locator}"]</arg>
+<arg>${postal_code}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.302" endtime="20221118 19:16:20.302"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:19.984" endtime="20221118 19:16:20.302">Element with locator 'xpath://button[contains(text(), "Checkout")]' not found.</status>
+</test>
+<test id="s1-s4-t8" name="Verify Chackout step two" line="76">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://input[@value="${button_text_continue}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:20.305" level="INFO">Clicking element 'xpath://input[@value="Continue"]'.</msg>
+<msg timestamp="20221118 19:16:20.546" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221118 19:16:20.546" level="FAIL">Element with locator 'xpath://input[@value="Continue"]' not found.</msg>
+<status status="FAIL" starttime="20221118 19:16:20.304" endtime="20221118 19:16:20.547"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${checkout_page_two_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.547" endtime="20221118 19:16:20.547"/>
+</kw>
+<kw name="verify cart item quantity, title, description, price">
+<arg>${item_title}[3]</arg>
+<arg>${item_description}[3]</arg>
+<arg>${item_price}[3]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:20.548" endtime="20221118 19:16:20.548"/>
+</kw>
+<kw name="verify cart item quantity, title, description, price">
+<arg>${item_title}[4]</arg>
+<arg>${item_description}[4]</arg>
+<arg>${item_price}[4]</arg>
+<status status="NOT RUN" starttime="20221118 19:16:20.548" endtime="20221118 19:16:20.548"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${payment_information_temp}</var>
+<arg>xpath://div[contains(text(), "${payment_information_locator}")]//following-sibling::div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.549" endtime="20221118 19:16:20.549"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${payment_information_temp}</arg>
+<arg>${payment_information}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.549" endtime="20221118 19:16:20.549"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${shipping_information_temp}</var>
+<arg>xpath://div[contains(text(), "${shipping_information_locator}")]//following-sibling::div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.550" endtime="20221118 19:16:20.550"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${shipping_information_temp}</arg>
+<arg>${shipping_information}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.551" endtime="20221118 19:16:20.551"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_total}</var>
+<arg>xpath://div[contains(text(), "${shipping_information_locator}")]//following-sibling::div[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.551" endtime="20221118 19:16:20.551"/>
+</kw>
+<kw name="Fetch From Right" library="String">
+<var>${item_total_amount_string}</var>
+<arg>${item_total}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.551" endtime="20221118 19:16:20.551"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${item_total_amount_number}</var>
+<arg>${item_total_amount_string}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.552" endtime="20221118 19:16:20.552"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${item_four_price_number}</var>
+<arg>${item_price}[3]</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.552" endtime="20221118 19:16:20.552"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${item_four_price_number}</var>
+<arg>${item_four_price_number}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.552" endtime="20221118 19:16:20.552"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${item_five_price_number}</var>
+<arg>${item_price}[4]</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.552" endtime="20221118 19:16:20.552"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${item_five_price_number}</var>
+<arg>${item_five_price_number}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.553" endtime="20221118 19:16:20.553"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${sum_amount}</var>
+<arg>${item_four_price_number}+${item_five_price_number}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.553" endtime="20221118 19:16:20.553"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${item_total_amount_number}</arg>
+<arg>${sum_amount}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.553" endtime="20221118 19:16:20.553"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${tax_amount}</var>
+<arg>xpath://div[contains(text(), "${shipping_information_locator}")]//following-sibling::div[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.553" endtime="20221118 19:16:20.553"/>
+</kw>
+<kw name="Fetch From Right" library="String">
+<var>${tax_amount_string}</var>
+<arg>${tax_amount}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.554" endtime="20221118 19:16:20.554"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${tax_amount_number}</var>
+<arg>${tax_amount_string}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.554" endtime="20221118 19:16:20.554"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${total_amount}</var>
+<arg>${tax_amount_number}+${sum_amount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.554" endtime="20221118 19:16:20.554"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${total_amount_on_screen}</var>
+<arg>xpath://div[contains(text(), "${shipping_information_locator}")]//following-sibling::div[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.554" endtime="20221118 19:16:20.554"/>
+</kw>
+<kw name="Fetch From Right" library="String">
+<var>${total_amount_on_screen_string}</var>
+<arg>${total_amount_on_screen}</arg>
+<arg>$</arg>
+<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.555" endtime="20221118 19:16:20.555"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${total_amount_on_screen_number}</var>
+<arg>${total_amount_on_screen_string}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.555" endtime="20221118 19:16:20.555"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${total_amount_on_screen_number}</arg>
+<arg>${total_amount}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.555" endtime="20221118 19:16:20.555"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:20.304" endtime="20221118 19:16:20.555">Element with locator 'xpath://input[@value="Continue"]' not found.</status>
+</test>
+<test id="s1-s4-t9" name="Verify Checkout step three" line="103">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(), "${button_text_finish}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:20.557" level="INFO">Clicking element 'xpath://button[contains(text(), "Finish")]'.</msg>
+<msg timestamp="20221118 19:16:20.851" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221118 19:16:20.851" level="FAIL">Element with locator 'xpath://button[contains(text(), "Finish")]' not found.</msg>
+<status status="FAIL" starttime="20221118 19:16:20.557" endtime="20221118 19:16:20.852"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${checkout_page_three_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.852" endtime="20221118 19:16:20.852"/>
+</kw>
+<kw name="Page Should Contain Image" library="SeleniumLibrary">
+<arg>xpath://h2[contains(text(), "${thank_yuu_text_locator}")]/parent::div/img</arg>
+<doc>Verifies image identified by ``locator`` is found from current page.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.853" endtime="20221118 19:16:20.853"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[contains(text(), "${button_text_back_home}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.853" endtime="20221118 19:16:20.853"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>xpath://div//span[contains(text(), "${inventory_page_title}")]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20221118 19:16:20.854" endtime="20221118 19:16:20.854"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:20.556" endtime="20221118 19:16:20.854">Element with locator 'xpath://button[contains(text(), "Finish")]' not found.</status>
+</test>
+<test id="s1-s4-t10" name="Verify Logout" line="112">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(), "${sidebar_locator}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:20.856" level="INFO">Clicking element 'xpath://button[contains(text(), "Open Menu")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:20.855" endtime="20221118 19:16:20.896"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221118 19:16:20.897" endtime="20221118 19:16:21.139"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://a[contains(text(), "${logout_option}")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221118 19:16:21.140" level="INFO">Clicking element 'xpath://a[contains(text(), "Logout")]'.</msg>
+<status status="PASS" starttime="20221118 19:16:21.139" endtime="20221118 19:16:21.176"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[@class="${logo_locator}"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221118 19:16:21.192" level="INFO">Element 'xpath://div[@class="login_logo"]' is displayed.</msg>
+<status status="PASS" starttime="20221118 19:16:21.176" endtime="20221118 19:16:21.192"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:20.855" endtime="20221118 19:16:21.193"/>
+</test>
+<kw name="close browser and clear session" library="CommonKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221118 19:16:21.195" endtime="20221118 19:16:23.277"/>
+</kw>
+<status status="PASS" starttime="20221118 19:16:21.194" endtime="20221118 19:16:23.277"/>
+</kw>
+<status status="FAIL" starttime="20221118 19:16:17.290" endtime="20221118 19:16:23.277"/>
+</suite>
+<status status="FAIL" starttime="20221118 19:16:01.486" endtime="20221118 19:16:23.280"/>
+</suite>
+<statistics>
+<total>
+<stat pass="19" fail="21" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="19" fail="21" skip="0" id="s1" name="KeywordDefinitionFiles">KeywordDefinitionFiles</stat>
+<stat pass="7" fail="0" skip="0" id="s1-s1" name="1 LoginPage">KeywordDefinitionFiles.1 LoginPage</stat>
+<stat pass="4" fail="10" skip="0" id="s1-s2" name="2 InventoryPage">KeywordDefinitionFiles.2 InventoryPage</stat>
+<stat pass="4" fail="5" skip="0" id="s1-s3" name="3 CartPage">KeywordDefinitionFiles.3 CartPage</stat>
+<stat pass="4" fail="6" skip="0" id="s1-s4" name="4 CheckoutPages">KeywordDefinitionFiles.4 CheckoutPages</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
