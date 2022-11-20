@@ -83,7 +83,11 @@ Hi. This is a practice automation project using Robot Framework and Selenium.
 ## Acknowledgements
 
  - I used a great test website by Sauce Labs for this automation: https://www.saucedemo.com/
-
+ - Robot Framework Documentations
+    - SeleniumLibrary: https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+    - String: https://robotframework.org/robotframework/latest/libraries/String.html
+    - Collections: https://robotframework.org/robotframework/latest/libraries/Collections.html
+    - OperatingSystem: https://robotframework.org/robotframework/latest/libraries/OperatingSystem.html
 
 ## Environment Setup Guide
 
