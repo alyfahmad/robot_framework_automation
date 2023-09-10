@@ -78,7 +78,7 @@ Hi. This is a practice automation project using Robot Framework and Selenium.
 
 
 ## Demo Video
-[demp](https://user-images.githubusercontent.com/61960249/226195981-59730611-60a6-45c9-ae19-513a6668e39c.mp4)
+[demo](https://user-images.githubusercontent.com/61960249/226195981-59730611-60a6-45c9-ae19-513a6668e39c.mp4)
 
 ## Acknowledgements
 
